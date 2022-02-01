@@ -1,10 +1,11 @@
-type Jitems  = {name: string; amount: number; price: number };
+type itemsStock  = {name: string; amount: number; price: number };
 type orderStatus = 'open' | 'closed'
-export class JuicesCana {
-    private readonly _items: Jitems[] = [];
+
+export class JuicesCanaLegacy {
+    private readonly _items: itemsStock[] = [];
     private _orderStatus: orderStatus = 'open';
 
-    addItem(item: Jitems): void {
+    addItem(item: itemsStock): void {
         this._items.push(item);
     }
 
@@ -12,7 +13,7 @@ export class JuicesCana {
         this._items.splice(index, 1);
     }
 
-    get items(): Readonly<Jitems[]> {
+    get items(): Readonly<itemsStock[]> {
         return this._items;
 
     }
@@ -52,7 +53,7 @@ export class JuicesCana {
     }
 }
 
-const juicesCana = new JuicesCana();
+const juicesCana = new JuicesCanaLegacy();
 juicesCana.addItem({name: 'cajuina 500ml',amount: 300, price: 35.0});
 juicesCana.addItem({name: 'cajuina 250ml',amount: 300, price: 15.0});
 juicesCana.addItem({name: 'cajuina 300ml',amount: 300, price: 25.0});
